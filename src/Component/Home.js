@@ -3,8 +3,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            this is home
-            home is here
+            ami ekta olosh
         </div>
     );
 };
