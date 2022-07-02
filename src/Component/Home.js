@@ -2,8 +2,8 @@ import React from 'react';
 
 const Home = () => {
     return (
-        <div>
-            recap started
+        <div className='bg-gray-400 h-screen'>
+            THis is Home
         </div>
     );
 };
