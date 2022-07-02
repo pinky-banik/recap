@@ -1,10 +1,13 @@
 import React from 'react';
-import useFirebase from './../Hooks/useFirebase';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { getAuth } from 'firebase/auth';
+import app from '../Firebase/Firebase.init';
 
+
+const auth = getAuth(app);
 
 const Login = () => {
-    const {handleGoogleSignIn} = useFirebase();
-
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     return (
         <div className='w-1/2 mx-auto'>
             <h1>Please Login</h1>
@@ -17,7 +20,7 @@ const Login = () => {
             <br />
             <button className='border focus:outline-none p-3 bg-green-600 m-3' type="Submit">Submit</button>
            </form>
-           <button onClick={handleGoogleSignIn} className='bg-orange-300 p-3 rounded-2xl'>Sign In using Google</button>
+           <button onClick={()=> signInWithGoogle()} className='bg-orange-300 p-3 rounded-2xl'>Sign In using Google</button>
         </div>
     );
 };
